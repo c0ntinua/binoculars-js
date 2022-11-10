@@ -1,0 +1,72 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@1&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Nova+Mono&family=Xanh+Mono:ital@1&display=swap');
+        </style> 
+        <link rel="stylesheet" type="text/css" href="collide.css" />     
+    </head>
+    <canvas id="canvas" onclick = "create_new_filter()" width=1000 height=1000></canvas>
+    <br>
+    <label for="colors">colors&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input type="text" id="colors" name="colors" value="3">
+
+    <label for="colors">color_0&nbsp;&nbsp;&nbsp;</label>
+    <input type="text" id="color_0" name="color_0" value=""#FFFFFF"">
+
+    <label for="colors">color_1&nbsp;&nbsp;&nbsp;</label>
+    <input type="text" id="color_1" name="color_1" value=""#FFFFFF"">
+
+
+
+
+    <label for="colors">color_2&nbsp;&nbsp;&nbsp;</label>
+    <input type="text" id="color_2" name="color_2" value=""#FFFFFF"">
+    <br>
+
+    <label for="colors">color_3&nbsp;&nbsp;&nbsp;</label>
+    <input type="text" id="color_3" name="color_3" value=""#FFFFFF"">
+
+ 
+    <label for="colors">color_4&nbsp;&nbsp;&nbsp;</label>
+    <input type="text" id="color_4" name="color_4" value=""#FFFFFF"">
+
+
+    
+   
+    <label for="rows">num&nbsp;rows&nbsp;&nbsp;</label>
+    <input type="text" id="rows" name="rows" onclick="getRows();" >
+   
+    <label for="rows">num&nbsp;cols&nbsp;&nbsp;</label>
+    <input type="text" id="cols" name="cols">
+    <br>
+    
+    <label for="delay">delay&nbsp;ms&nbsp;&nbsp;</label>
+    <input type="text" id="delay" name="delay">
+
+
+    
+
+    <label for="delay">updates&nbsp;&nbsp;&nbsp;</label>
+    <input type="text" id="updates" name="updates">
+
+    <label for="neighbors">neighbors&nbsp;</label>
+    <input type="text" id="neighbors" name="neighbors">
+
+    <label for="neighbors" onclick="getChoices();" >APPLY CHANGES</label>
+
+
+
+    <!-- <button type="button" onclick="getChoices();">APPLY CHANGES</button> -->
+
+
+    <script src="filter.js"></script>
+    <script src="plot.js"></script>
+    <script src="input.js"></script>
+    <script src="global.js"></script>
+    <script src="manager.js"></script>
+    <script src="main.js"></script>
+</html>
