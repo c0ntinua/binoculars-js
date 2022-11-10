@@ -5,6 +5,22 @@ function getNumColors() {
 function setNumColors() {
     document.getElementById("colors").value = global_colors;
 }
+function getRowFilter() {
+    row_filter_code = document.getElementById(`row_rule`).value;
+    row_filter.cell = getRule(row_filter_code);
+}
+function getColFilter() {
+    col_filter_code = document.getElementById(`col_rule`).value;
+    col_filter.cell = getRule(col_filter_code);
+}
+function setRowFilter() {
+    row_filter_code = getCode(row_filter.cell);
+    document.getElementById(`row_rule`).value = row_filter_code;
+}
+function setColFilter() {
+    col_filter_code = getCode(col_filter.cell);
+    document.getElementById(`col_rule`).value = col_filter_code;
+}
 function getColor(n) {
     color[n] = document.getElementById(`color_${n}`).value;
 }
@@ -67,22 +83,22 @@ function setUpdates() {
 
 function getChoices(){
     getColors();
-    getNumColors();
     getRows();
     getCols();
     getDelay();
     getUpdates();
-    getNeighbors();
+    getRowFilter();
+    getColFilter();
 }
 
 function setChoices(){
     setColors();
-    setNumColors();
     setRows();
     setCols();
     setDelay();
     setUpdates();
-    setNeighbors();
+    setRowFilter();
+    setColFilter();
 }
 
 function reset() {
@@ -94,4 +110,30 @@ function reset() {
 }
 function bigReset() {
     auto = newAutomata();
+}
+
+function applyChoices() {
+    getChoices();
+    setChoices();
+}
+
+function getRule(code) {
+    let filter_cell = [];
+    let temp = 0;
+    for (let i = 0; i < code_length; i++) {
+        if (code.length <= i) {
+            filter_cell.push(0);
+        } else {
+            if (parseInt(code[i]) == 1) filter_cell.push(1); 
+            else filter_cell.push(0);
+        }    
+    }
+    return filter_cell;
+}
+function getCode(rule) {
+    let code = "";
+    for (let i = 0; i < code_length; i++) {
+        code = code.concat(rule[i].toString());
+    }
+    return code;
 }

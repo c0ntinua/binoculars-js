@@ -136,3 +136,27 @@ function next_round() {
 delay = 100;
 setInterval(next_round,delay);
 console.log(filter);
+
+
+function getRule(code) {
+    let filter_cells = [];
+    let temp = 0;
+    for (let i = 0; i < code_length; i++) {
+        if (code.length <= i) {
+            filter_cells.push(0);
+        } else {
+            if (parseInt(code[i]) == 1) filter_cells.push(1); 
+            else filter_cells.push(0);
+        }    
+    }
+    return filter_cells;
+}
+
+function getCode(rule) {
+    let code = "";
+    for (let i = 0; i < code_length; i++) {
+        code = code.concat(rule[i].toString());
+    }
+    return code;
+
+}

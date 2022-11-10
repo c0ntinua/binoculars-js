@@ -6,4 +6,7 @@ button {
     /* font-family: 'Xanh Mono', monospace; */
     font-family: 'Nova Mono', monospace;
 }
+body {
+    background-color: rgb(191, 194, 195);
+  }
 

@@ -1,7 +1,7 @@
 function newFilter() {
     return {
         length : global_colors ** 9,
-        cell : new Array(global_colors ** 9).fill(0),
+        cell : new Array(code_length).fill(0),
     }
 }
 function seedFilter(filter) {
@@ -10,7 +10,8 @@ function seedFilter(filter) {
     }
 }
 
-function applyFilterTo(filter, auto) {
+function applyFilterTo( auto) {
+    let new_value = 0;
     let filter_index = 0;
     for (let row = 0 ; row < auto.rows ; row++) {
         for (let col = 0 ; col < auto.cols ; col++) {
@@ -19,9 +20,13 @@ function applyFilterTo(filter, auto) {
             // if (Math.random() < 0.5) filter_index = valueAtElementaryRow(auto,row,col);
             // else filter_index = valueAtElementaryCol(auto,row,col);
             //filter_index = valueAtElementary(auto,row,col);
-            if (Math.random() < 0.5) filter_index = rowValue(auto,row,col);
-            else filter_index = colValue(auto,row,col);
-            let new_value = filter.cell[filter_index];
+            if (Math.random() < 0.5) {
+                filter_index = rowValue(auto,row,col);
+                new_value = row_filter.cell[filter_index];
+            } else {
+                filter_index = colValue(auto,row,col);
+                new_value = col_filter.cell[filter_index];
+            }
             temp_cell[row*auto.cols +col] =  new_value;
         }
     }
@@ -70,6 +75,7 @@ function valueAtElementaryCol(auto,row,col) {
 function colValue(auto,row,col) {
     let exponent = neighbors - 1;
     let running_total = 0;
+    
     this_col = col;
     for (let row_mod = 0; row_mod < neighbors; row_mod++) {
             this_row = row + row_mod;
@@ -83,6 +89,7 @@ function colValue(auto,row,col) {
 function rowValue(auto,row,col) {
     let exponent = neighbors - 1;
     let running_total = 0;
+    let raw_value = 0;
     this_row = row;
     for (let col_mod = 0; col_mod < neighbors; col_mod++) {
             this_col = row + col_mod;
@@ -108,11 +115,16 @@ function valueAt_(auto,row,col) {
     return running_total;
 }
 
-function random_local_update(filter, auto) {
+function random_local_update( auto) {
     row = Math.floor(Math.random() * global_rows);
     col = Math.floor(Math.random() * global_cols);
-    let filter_index = valueAt(auto,row,col);
-    let new_value = filter.cell[filter_index];
+    if (Math.random() < 0.5) {
+        filter_index = rowValue(auto,row,col);
+        new_value = row_filter.cell[filter_index];
+    } else {
+        filter_index = colValue(auto,row,col);
+        new_value = col_filter.cell[filter_index];
+    }
     auto.set(row,col,new_value);
 }
 
