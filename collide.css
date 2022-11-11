@@ -8,5 +8,14 @@ button {
 }
 body {
     background-color: rgb(191, 194, 195);
-  }
+}
+
+a {
+    font-family: 'Nova Mono', monospace;
+
+}
+el {
+    font-family: 'Nova Mono', monospace;
+
+}
 
