@@ -158,5 +158,4 @@ function getCode(rule) {
         code = code.concat(rule[i].toString());
     }
     return code;
-
 }
