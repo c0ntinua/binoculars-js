@@ -9,3 +9,10 @@ function perform_tiny_update() {
     }
     plotAutomata(auto);
 }
+function perform_tiny_update_classic() {
+    for (let i = 0; i < tiny_updates; i++) {
+        classic_random_local_update(auto);
+    }
+    plotAutomata(auto);
+
+}

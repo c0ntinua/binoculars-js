@@ -53,7 +53,11 @@ function setRows() {
 function getDelay() {
     delay = parseInt(document.getElementById("delay").value);
     clearInterval(interval);
-    interval = setInterval(perform_tiny_update,delay);
+    if (!classic_mode) {
+        interval = setInterval(perform_tiny_update,delay);
+    } else {
+        interval = setInterval(perform_tiny_update_classic,delay);
+    };
 }
 function setDelay() {
     document.getElementById("delay").value = delay;

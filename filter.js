@@ -55,16 +55,23 @@ function rowValue(auto,row,col) {
 }
 
 
-function random_local_update( auto) {
+// function random_local_update( auto) {
+//     row = Math.floor(Math.random() * global_rows);
+//     col = Math.floor(Math.random() * global_cols);
+//     if (Math.random() < 0.5) {
+//         filter_index = rowValue(auto,row,col);
+//         new_value = row_filter.cell[filter_index];
+//     } else {
+//         filter_index = colValue(auto,row,col);
+//         new_value = col_filter.cell[filter_index];
+//     }
+//     auto.set(row,col,new_value);
+// }
+function classic_random_local_update( auto) {
     row = Math.floor(Math.random() * global_rows);
     col = Math.floor(Math.random() * global_cols);
-    if (Math.random() < 0.5) {
-        filter_index = rowValue(auto,row,col);
-        new_value = row_filter.cell[filter_index];
-    } else {
-        filter_index = colValue(auto,row,col);
-        new_value = col_filter.cell[filter_index];
-    }
+    filter_index = rowValue(auto,row,col);
+    new_value = row_filter.cell[filter_index];
     auto.set(row,col,new_value);
 }
 

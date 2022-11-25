@@ -11,6 +11,8 @@ let output_colors = 2;
 let color = ["#000000","#FFFFFF"];
 let delay = 100;
 let tiny_updates = 100;
+let classic_mode = true;
+let interval = 0;
 
 let temp_cell = new Array(global_rows * global_cols).fill(0);
 let auto = newAutomata();
