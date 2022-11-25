@@ -1,6 +1,6 @@
 function newFilter() {
     return {
-        length : global_colors ** 9,
+        length : code_length,
         cell : new Array(code_length).fill(0),
     }
     
@@ -9,6 +9,11 @@ function seedFilter(filter) {
     for (c = 0 ; c < filter.length; c++) {
         filter.cell[c] = Math.floor(Math.random() * global_colors);
     }
+}
+
+function randomFilter() {
+    seedFilter(row_filter);
+    setRowFilter();
 }
 
 function valueAt(auto,row,col) {

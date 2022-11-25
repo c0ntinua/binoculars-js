@@ -92,7 +92,7 @@ function getChoices(){
     getDelay();
     getUpdates();
     getRowFilter();
-    getColFilter();
+    
 }
 
 function setChoices(){
@@ -102,7 +102,7 @@ function setChoices(){
     setDelay();
     setUpdates();
     setRowFilter();
-    setColFilter();
+   
 }
 
 function reset() {

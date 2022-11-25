@@ -1,7 +1,6 @@
 setChoices();
 seedAutomata(auto,global_colors);
 seedFilter(row_filter);
-seedFilter(col_filter);
 plotAutomata(auto);
 //interval = setInterval(perform_tiny_update_classic,delay);
 
